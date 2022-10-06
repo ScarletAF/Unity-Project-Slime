@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
+    [SerializeField] private PlayerTurn playerTurn;
     [SerializeField] private float speed;
     [SerializeField] private Rigidbody rigid;
     [SerializeField] private float turnSpeed;
@@ -19,6 +20,10 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (playerTurn.IsPlayerTurn())
+        {
+
+        
         float ForwardInput = Input.GetAxis("Vertical");
         float TurnInput = Input.GetAxis("Horizontal");
 
@@ -32,7 +37,7 @@ public class Movement : MonoBehaviour
             Jump();
         }
 
-
+        }
 
     }
     void Jump()
