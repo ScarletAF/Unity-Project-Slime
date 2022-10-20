@@ -11,7 +11,7 @@ public class Respawn : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -20,6 +20,15 @@ public class Respawn : MonoBehaviour
         if (player1.transform.position.y < minHeightForDeath)
             player1.transform.position = spawnPoint1.position;
 
-    
+
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "death")
+        {
+            player1.transform.position = spawnPoint1.position;
+
+        }
     }
 }

@@ -20,4 +20,13 @@ public class Respawn2 : MonoBehaviour
         if (player2.transform.position.y < minHeightForDeath)
             player2.transform.position = spawnPoint2.position;
     }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "death")
+        {
+            player2.transform.position = spawnPoint2.position;
+
+        }
+    }
 }
